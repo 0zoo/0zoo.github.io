@@ -1,4 +1,7 @@
+
+
 # 1장. 코틀린이란 무엇이며, 왜 필요한가?
+
 ### 코틀린 언어의 특징
 1) __간결함__
 	: _보일러 플레이트(boilerplate)_를 제거해야 한다.
@@ -13,12 +16,18 @@ http://try.kotl.in
 
 ```java
 
-data class Person(val name: String, val age: Int? = null) // Int? 는 null이 될 수 있는 타입.  
+data class Person(val name: String
+	, val age: Int? = null) 
+	// Int? 는 null이 될 수 있는 타입.  
 
 fun main(args: Array<String>){
-	val persons = listOf( Person("영희"), Person("철수",age=25) )
-	val oldest = persons.maxBy { it.age ?: 0 } // 람다식과 엘비스 연산자.
-// 엘비스 연산자(?:)란 age가 null일 경우에는 0을 반환하고, 그 이외의 경우에는 age값을 반환한다.
+	val persons = listOf( Person("영희")
+	, Person("철수",age=25) )
+	val oldest = persons.maxBy { it.age ?: 0 } 
+	// 람다식과 엘비스 연산자.
+	
+	// 엘비스 연산자(?:)란 age가 null일 경우에는 0을 반환하고,
+	// 그 이외의 경우에는 age값을 반환한다.
 
 	println("나이가 가장 많은 사람: $oldest") //문자열 템플릿
 }
@@ -26,11 +35,11 @@ fun main(args: Array<String>){
 ```
 
 
-``` //실행 결과
+``` 
+//실행 결과
 나이가 가장 많은 사람: Person(name=철수, age=25)
 // toString 자동 생성
 ```
-
 
 ## 1.2 코틀린의 주요 특성
 코틀린의 주 목적: 현재 자바보다 더 간결하고 생산적이며 안전한 대체 언어를 제공하는 것.
@@ -73,7 +82,7 @@ fun main(args: Array<String>){
 대부분의 경우 코틀린의 컴파일러가 문맥으로부터 변수의 타입을 유추할 수 있기 때문. -> _타입 추론 (type inference)_
 
 ```
-	var x = 1
+var x = 1
 ```
  
 코틀린은 _타입 추론_을 지원하기 때문에 정적 타입 지정 언어에서 직접 타입을 선언해야 하는 불편함이 해소됨.
@@ -133,7 +142,9 @@ Java와 다르게 새로 추가된 것:
 
 ```java
 // 간단한 HTML 생성 라이브러리
-fun renderPersonList(persons: Collection<Person>) = createHTML().table{
+fun renderPersonList(persons: Collection<Person>) 
+= createHTML().table{
+
 	for(person in persons){
 		tr{
 			td{+person.name}
@@ -149,7 +160,6 @@ fun renderPersonList(persons: Collection<Person>) = createHTML().table{
 —> 나중에 7.5절과 11장에서 더 자세히 살펴볼 예정
 
 
-
 ### 1.3.2 코틀린 안드로이드 프로그래밍
 
 _Anko_라이브러리 (https://github.com/kotlin/anko) 를 사용하면 안드로이드 API에 대한 코틀린 어댑터를 제공받을 수 있다.
@@ -158,7 +168,8 @@ _Anko_라이브러리 (https://github.com/kotlin/anko) 를 사용하면 안드�
 verticalLayout{
 	val name = editText()
 	button("say hello"){ // 클릭시 텍스트 필드의 값을 표시
-		onClick{ toast("Hello, ${name.text}!") } // 버튼에 리스너를 추가하고 토스트를 표시하는 간결한 API
+		onClick{ toast("Hello, ${name.text}!") } 
+		// 버튼에 리스너를 추가하고 토스트를 표시하는 간결한 API
 	}
 }
 ```
@@ -191,13 +202,6 @@ inlining????
 
 ## 1.6 요약
 
-
-
-
-
-
-
-#STUDY/KotlinInAction
 
 
 
