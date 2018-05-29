@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "ko"
-title                    : "0ZOO BLOG"
+title                    : "영주 블로그"
 title_separator          : "-"
 name                     : "0zoo"
 description              : "hihi"
